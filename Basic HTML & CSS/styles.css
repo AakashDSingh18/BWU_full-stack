@@ -161,16 +161,8 @@ nav{
     width: 350px;
     height: 350px;
     border-radius: 50%;
-    background-image: 
-        linear-gradient(rgba(4, 11, 23, 0.5), rgba(4, 11, 23, 0.5)), 
-        url('profile-pic.jpeg');
-    
-    /* Ensures the image covers the whole circle nicely */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     /* A temporary gradient that mimics the colors in your reference image */
-    /* background: linear-gradient(135deg, #07162e, #ff3366, #ff9933); */
+    background: linear-gradient(135deg, #07162e, #ff3366, #ff9933);
     filter: grayscale(0%) contrast(140%) ;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
 }
