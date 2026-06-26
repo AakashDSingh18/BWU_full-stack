@@ -34,4 +34,4 @@ To view this project on your local machine:
 
 1. Clone the repository:
    ```bash
-   git clone [https://github.com/AakashDSingh18/your-repo-name.git](https://github.com/AakashDSingh18/your-repo-name.git)
+   git clone https://github.com/AakashDSingh18/BWU_full-stack
