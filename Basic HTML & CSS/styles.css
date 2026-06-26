@@ -1,4 +1,4 @@
-html {
+/* html {
     font-family: Arial, Helvetica, sans-serif;
     background-color: #f5f5f5;
     margin: 0;
@@ -8,12 +8,23 @@ html {
 
 *, *::before, *::after {
     box-sizing: inherit;
+} */
+
+html, body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #040b17; /* Deep cinematic navy blue */
+    color: #ffffff; /*Make default text white */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
 
 header {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    justify-content: space-between; /* Spreads the 3 elements out evenly */
+    align-items: center;            /* Vertically centers everything */
+    padding: 0 30px;
     background-color: #0a0a0a;
     padding: 20px 15px 20px 30px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.80);
@@ -22,27 +33,20 @@ header {
     z-index: 10;
     border-radius: 0 0 20px 20px;
 }
-/* 
-header h1 {
-    color: #e4dfdf;
-    font-size: 50px;
-    margin: 0;
-} */
 
 header img {
     width: 125px;
     height: 65px;
-    align-self: center;
+    flex-shrink: 0;
 }
 
-nav {
+nav{
     display: flex;
-    padding: 20px;
-    justify-content: right;
     align-items: center;
-    gap: 25px;
+    justify-content:space-evenly;  /* all elements are evenly spaced*/
+    flex: 1;
     font-size: 15px;
-    width: 100%;
+    padding: 1px;
 }
 
 .nav-link {
@@ -50,13 +54,13 @@ nav {
     font-weight: bold;
     text-decoration: initial;
     transition: color 0.7s ease;
+    white-space: nowrap;         /* don't let the text of links to get distributed in multilines*/
 }
 
 .hero {
     display: flex;
     height: 83vh;
     align-items: center;
-    /* justify-content: center; */
     padding: 5px;
     margin-top: 8px;
     gap: 0px;
@@ -124,4 +128,94 @@ nav {
     font-size: 15px;
     color: #9c1e1e;
     /* border: 2px solid #9c1e1e; */
+}
+
+
+
+
+.hero-card {
+    position: relative; /* Crucial for layering elements inside */
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8px;
+    margin-left: 4px;
+    margin-right: 4px;
+    /* margin-bottom: 4px; */
+    height: 84vh;
+    border: 2px solid #9c1e1e;
+    border-radius: 20px;
+}
+
+.center-art {
+    position:absolute;
+    top: 45%;
+    left: 50%;
+    /* The smooth continuous float effect */
+    animation: floatSlow 8s ease-in-out infinite;
+}
+
+.art-placeholder {
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    background-image: 
+        linear-gradient(rgba(4, 11, 23, 0.5), rgba(4, 11, 23, 0.5)), 
+        url('profile-pic.jpeg');
+    
+    /* Ensures the image covers the whole circle nicely */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* A temporary gradient that mimics the colors in your reference image */
+    /* background: linear-gradient(135deg, #07162e, #ff3366, #ff9933); */
+    filter: grayscale(0%) contrast(140%) ;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+/* 4. The Typography Positioning */
+.hero-text {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    position: absolute;
+    bottom: 50px; /* Anchors it to the bottom */
+    text-align: center;
+    z-index: 10; /* Ensures text stays ON TOP of the graphic */
+}
+
+.subtitle {
+    font-size: 14px;
+    letter-spacing: 8px; /* Wide tracking creates that editorial look */
+    color: #8c9bba;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    transition: color 0.4s ease;
+}
+
+.title {
+    /* If you can, import a serif font like 'Playfair Display' for this specific class! */
+    font-size: 70px;
+    margin: 0;
+    font-weight: normal;
+    letter-spacing: 2px;
+    text-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.4s ease, text-shadow 0.4s ease;
+}
+
+/* 5. Interactive Hover States */
+.hero-text:hover .title {
+    transform: translateY(-10px); /* Smoothly lifts up */
+    text-shadow: 0px 15px 30px rgba(0, 0, 0, 0.8);
+}
+
+.hero-text:hover .subtitle {
+    color: #e5d8d8; /* Brightens on hover */
+}
+
+/* 6. The Keyframes for the Floating Animation */
+@keyframes floatSlow {
+    0% { transform: translate(-50%, -50%); }
+    50% { transform: translate(-50%, -55%); } /* Drifts up slightly */
+    100% { transform: translate(-50%, -50%); } /* Returns to start */
 }
