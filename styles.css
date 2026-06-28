@@ -160,6 +160,8 @@ nav{
     display: flex;
     position: relative;
     height: 300px;
+    width: 100%;
+    max-width: 900px;
     top: 70px;
     padding: 4px;
     gap: 30px;
@@ -169,14 +171,16 @@ nav{
 .flash-card {
     position: relative;
     top: 15px;
-    width: 250px;
+    /* width: 250px; */
+    width: 100%;
     padding: 0;          /* remove padding so overlay fits perfectly */
     text-align: center;
     align-content: center;
-    border: 2px solid #9c1e1e;
+    /* border: 2px solid #9c1e1e; */
     overflow: hidden;    /* crucial — clips the sliding panel */
-    height: 150px;       /* give it a fixed height */
+    height: 250px;       /* give it a fixed height */
     cursor: pointer;
+    border:3px groove rgba(176, 74, 74, 0.8);
 }
 
 .flash-card p {
@@ -186,21 +190,36 @@ nav{
     gap: 15px;
     margin: 0;
     height: 100%;        /* fill the card */
+    /* transition: top 0.5s ease; */
+    overflow-y: visible;
 }
 
 /* The sliding reveal panel */
 .flash-card .reveal {
     position: absolute;
-    top: -100%;          /* starts hidden ABOVE */
+    top: -102%;          /* starts hidden ABOVE */
     left: 0;
     width: 100%;
     height: 100%;
     background-image: url('linkedinprofile.png');
     background-size: cover;
     background-position: center;
+    transition:0.5s ease;
+}
+
+.flash-card .lower-shift{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
     transition: top 0.5s ease;
+    overflow-y: visible;
+}
+
+.flash-card:hover .lower-shift{
+    top: 80%;
 }
 
 .flash-card:hover .reveal {
-    top: 0;              /* slides DOWN into view */
+    top: -80%;              /* slides DOWN into view */
 }
